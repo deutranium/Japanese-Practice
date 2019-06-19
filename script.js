@@ -1,12 +1,12 @@
 // A self note - Make this WITHOUT jQuery!
 
 //Variables
-let data;		// To store alphabets.json
-let hiragana;	// The hiragana alphabet
-let romaji;		// The correct Romaji translation
-let indexArr;	// To store the shuffled array of indices for alphabets.json
-let curIndex = 0; //Index in indexArr whose alphabet is currently displayed
-let nextQuestion = false;	// To display the next question or not
+let data;								// To store alphabets.json
+let hiragana;							// The hiragana alphabet
+let romaji;								// The correct Romaji translation
+let indexArr;							// To store the shuffled array of indices for alphabets.json
+let curIndex = 0; 						//Index in indexArr whose alphabet is currently displayed
+let nextQuestion = false;				// To display the next question or not
 let elemCorrect = document.querySelectorAll(".correct");
 let elemWrong = document.querySelectorAll(".wrong");
 let elemDibba = document.querySelectorAll(".response-display, .response-text");

@@ -1,4 +1,4 @@
-/*@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');*/
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
 
 body{
 	margin: 0;
@@ -36,6 +36,7 @@ body{
 }
 
 #input-box{
+	outline: none;
 	border: none;
 	font-size: 1.2rem;
 	padding: 0.3rem 0.5rem;
