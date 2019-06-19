@@ -1,0 +1,99 @@
+/*@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');*/
+
+body{
+	margin: 0;
+	font-family: "Noto Sans JP", sans-serif;
+}
+
+.container{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #f44336;
+}
+
+#box-main{
+	height : 23rem;
+	width: 23rem;
+	background-color: #ffffff;
+	border-radius: 2px;
+	box-shadow: 1px 1px 8px #555;
+}
+
+#box-big{
+	height: 61%;
+	text-align: center;
+	padding: 2% 0;
+	font-size : 10rem;
+}
+
+#box-small{
+	position: relative;
+	height: 28%;
+	padding: 5% 0 2% 0;
+	text-align: center;
+}
+
+#input-box{
+	border: none;
+	font-size: 1.2rem;
+	padding: 0.3rem 0.5rem;
+	border-bottom: solid 1px #f44336;
+}
+
+button{
+	margin-left: 10px;
+	position: relative;
+	height: 2.5rem;
+	width: 2.5rem;
+	border: none;
+	background-color: #000;
+	border-radius: 500px;
+}
+
+.checkmark{
+	display: inline-block;
+	left: 50%;
+	width: 10px;
+	height: 20px;
+	border: solid #fff;
+	border-width: 0 2px 2px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.response{
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+
+.wrong{
+	color: red;
+	display: none;
+}
+
+.correct{
+	color: green;
+	display: none;
+}
+
+.correct.response-display{
+	background-color: green;
+}
+
+.wrong.response-display{
+	background-color: red;
+}
+
+.blah{
+	display: block;
+}
+
+.response-display{
+	margin-top: 10px;
+	height: 1.5rem;
+	border-radius: 0 0 2px 2px;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ひらがな</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<div id="box-main">
+			<div id="box-big"></div>
+			<hr width = "50" style="margin: 0 auto;">
+			<div id="box-small">
+					<input id="input-box" type="text" name="inpt" placeholder="Enter your answer here">
+					<button type="button" onclick="atbs()"><span class="checkmark"></span></button>
+				<div class="response">
+					<div class="response-text correct">Correct!</div>
+					<div class="response-text wrong">Wrong!</div>
+					<div class="response-display correct"></div>
+					<div class="response-display wrong"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript" src = "script.js"></script>
+</body>
+</html>
