@@ -9,6 +9,7 @@ let curIndex = 0; 						//Index in indexArr whose alphabet is currently displaye
 let nextQuestion = false;				// To display the next question or not
 let elemCorrect = document.querySelectorAll(".correct");
 let elemWrong = document.querySelectorAll(".wrong");
+let elemError = document.querySelectorAll(".error");
 let elemDibba = document.querySelectorAll(".response-display, .response-text");
 let bigDibba = document.getElementById("box-big");
 
@@ -21,6 +22,7 @@ let bigDibba = document.getElementById("box-big");
 
 // Event listener for enter key press
 let input = document.getElementById("input-box");
+input.innerHTML = "";
 input.addEventListener("keyup", function(e){
 	if(e.keyCode == 13){
 		e.preventDefault();
@@ -104,13 +106,24 @@ function update(){
 
 
 function checkAnswer(inputVal){
-	if(inputVal == romaji){
+	if(inputVal.toLowerCase() == romaji){
 		let i = elemCorrect.length;
 		while(i--){
-			elemCorrect[i].setAttribute("style", "display : block");
+			//elemCorrect[i].setAttribute("style", "display : block");
+		}
+		//input.disabled = true;
+		input.value = "";
+		nextQuestion = true;
+		update();
+	}
+
+	else if(inputVal == ""){
+		let i = elemError.length;
+		while(i--){
+			elemError[i].setAttribute("style", "display : block");
 		}
 
-		nextQuestion = true;
+		nextQuestion = false;
 	}
 
 	else{
@@ -118,7 +131,7 @@ function checkAnswer(inputVal){
 		while(i--){
 			elemWrong[i].setAttribute("style", "display : block");
 		}
-
+		input.value = "";
 		nextQuestion = false;
 	}
 }
@@ -140,8 +153,6 @@ function atbs(){
 	if(nextQuestion){}
 	
 }
-
-
 
 
 /*------------------------------------------------*/

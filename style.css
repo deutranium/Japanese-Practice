@@ -14,6 +14,11 @@ body{
 }
 
 #box-main{
+	display: flex;
+}
+
+#inner-container{
+	display: block;
 	height : 23rem;
 	width: 23rem;
 	background-color: #ffffff;
@@ -81,12 +86,21 @@ button{
 	display: none;
 }
 
+.error{
+	color: #b0ad00;
+	display: none;
+}
+
 .correct.response-display{
 	background-color: green;
 }
 
 .wrong.response-display{
 	background-color: red;
+}
+
+.error.response-display{
+	background-color: #ffe000;
 }
 
 .blah{
@@ -97,4 +111,44 @@ button{
 	margin-top: 10px;
 	height: 1.5rem;
 	border-radius: 0 0 2px 2px;
+}
+
+
+
+.box-load{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	overflow: auto;
+	height: 23rem;
+}
+
+.box-load div:nth-child(1){
+	color: green;
+}
+.box-load div:nth-child(2){
+	color: red;
+}
+
+#loading{
+	height: 2rem;
+	padding: 1rem 1rem;
+	border-radius: 0 2rem 2rem 0;
+	background-color: #fff;
+}
+
+.exercise-done{
+	position: absolute;
+	text-align: center;
+	padding: 2rem 1rem 1rem 1rem;
+	background: #fff;
+	height : 20rem;
+	width: 21rem;
+	border-radius: 2px;
+	box-shadow: 1px 1px 8px #555;
+	display: none;
+}
+
+.score-text{
+	padding: 0.8rem 0;
 }

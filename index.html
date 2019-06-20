@@ -8,18 +8,39 @@
 <body>
 	<div class="container">
 		<div id="box-main">
-			<div id="box-big"></div>
-			<hr width = "50" style="margin: 0 auto;">
-			<div id="box-small">
-					<input id="input-box" type="text" name="inpt" placeholder="Enter your answer here">
-					<button type="button" onclick="atbs()"><span class="checkmark"></span></button>
-				<div class="response">
-					<div class="response-text correct">Correct!</div>
-					<div class="response-text wrong">Wrong!</div>
-					<div class="response-display correct"></div>
-					<div class="response-display wrong"></div>
+			<div id = "inner-container">
+				<div id="box-big"></div>
+				<hr width = "50" style="margin: 0 auto;">
+				<div id="box-small">
+						<input id="input-box" type="text" name="inpt" placeholder="Enter your answer here">
+						<button type="button" onclick="atbs()"><span class="checkmark"></span></button>
+					<div class="response">
+						<div class="response-text correct">Correct!</div>
+						<div class="response-text wrong">Wrong!</div>
+						<div class="response-text error">Please enter some text!</div>
+						<div class="response-display correct"></div>
+						<div class="response-display wrong"></div>
+						<div class="response-display error"></div>
+					</div>
 				</div>
 			</div>
+			<div class="box-load">
+				<div id="loading">+1</div>
+				<div id="loading">-1</div>
+			</div>
+			<div class="exercise-done">
+				<img src="images/confetti.png"><br><br>
+				<!-- <div>Icons made by <a href="https://www.flaticon.com/authors/pongsakornred" title="pongsakornRed">pongsakornRed</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+				<div class="yay-text">
+					Yay! You've completed all the hiragana alphabets!
+					<div class="score-text">
+						<div style="color: green">Corrrect attempts : +10</div>
+						<div style="color: red">Incorrrect attempts : -5</div>
+					</div>
+				</div>
+				<button>Redo</button>
+			</div>
+
 		</div>
 	</div>
 
