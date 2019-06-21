@@ -5,18 +5,20 @@ let data;								// To store alphabets.json
 let hiragana;							// The hiragana alphabet
 let romaji;								// The correct Romaji translation
 let indexArr;							// To store the shuffled array of indices for alphabets.json
-let curIndex = 0; 						//Index in indexArr whose alphabet is currently displayed
-let nextQuestion = false;				// To display the next question or not
-let elemCorrect = document.querySelectorAll(".correct");
+let curIndex = 0; 						// Index in indexArr whose alphabet is currently displayed
 let elemWrong = document.querySelectorAll(".wrong");
 let elemError = document.querySelectorAll(".error");
 let elemDibba = document.querySelectorAll(".response-display, .response-text");
 let bigDibba = document.getElementById("box-big");
+let isExerciseComplete = false;
+let positiveScore = 0;
+let negativeScore = 0;
+let result;								// To store the results
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/* Basic functions */
+/* ===== Basic functions ===== */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -34,7 +36,7 @@ input.addEventListener("keyup", function(e){
 /*------------------------------------------------*/
 
 
-//get the JSON file
+//get the JSON files
 let getJSON = function(url, callback){
 	let xhr = new XMLHttpRequest();
 	xhr.open('GET', url, true);
@@ -46,7 +48,7 @@ let getJSON = function(url, callback){
 }
 
 
-getJSON("alphabets.json", function(e, response){
+getJSON("kana.json", function(e, response){
 	if(e != null) console.log(e);
 	else{
 		data = response;
@@ -54,6 +56,11 @@ getJSON("alphabets.json", function(e, response){
 		update();
 	}
 });
+
+getJSON("result.json", function(e, response){
+	if(e != null) console.log(e);
+	else result = response;
+})
 
 
 /*------------------------------------------------*/
@@ -86,19 +93,20 @@ function randomize(arr){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/* DOM Specific functions sart here */
+/* ===== DOM Specific functions sart here ===== */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 function update(){
-	hiragana = data.data[indexArr[curIndex]]["HG"];
-	romaji = data.data[indexArr[curIndex]]["RJ"];
-	curIndex++;
+	if(curIndex == data.data.length) exerciseCompleted();
+	else{
+		hiragana = data.data[indexArr[curIndex]]["HG"];
+		romaji = data.data[indexArr[curIndex]]["RJ"];
+		curIndex++;
 
-	bigDibba.innerHTML = hiragana;
-
-	console.log(romaji);
+		bigDibba.innerHTML = hiragana;
+	}
 }
 
 
@@ -107,13 +115,9 @@ function update(){
 
 function checkAnswer(inputVal){
 	if(inputVal.toLowerCase() == romaji){
-		let i = elemCorrect.length;
-		while(i--){
-			//elemCorrect[i].setAttribute("style", "display : block");
-		}
-		//input.disabled = true;
 		input.value = "";
-		nextQuestion = true;
+		positiveScore += 1;
+		document.getElementById("box-side").children[0].innerHTML = "+ " + positiveScore;
 		update();
 	}
 
@@ -123,22 +127,52 @@ function checkAnswer(inputVal){
 			elemError[i].setAttribute("style", "display : block");
 		}
 
-		nextQuestion = false;
 	}
 
 	else{
+		negativeScore--;
 		let i = elemWrong.length;
 		while(i--){
 			elemWrong[i].setAttribute("style", "display : block");
 		}
 		input.value = "";
-		nextQuestion = false;
+		document.getElementById("box-side").children[1].innerHTML = negativeScore;
 	}
 }
 
 
 /*------------------------------------------------*/
 
+function exerciseCompleted(){
+	console.log("tada!");
+	document.getElementById("correct-score").innerHTML = "Corrrect attempts : +" + positiveScore;
+	document.getElementById("wrong-score").innerHTML = "Incorrrect attempts : " + negativeScore;
+	let resultImg = "";
+	let resultText = "";
+	if(positiveScore + negativeScore == data.data.length){
+		resultImg = result.data[3].image;
+		resultText = result.data[3].text;
+	}
+
+	else if(positiveScore + negativeScore >= (data.data.length * 0.90)){
+		resultImg = result.data[2].image;
+		resultText = result.data[2].text;
+	}
+	else if(positiveScore + negativeScore >= (data.data.length * 0.80)){
+		resultImg = result.data[1].image;
+		resultText = result.data[1].text;
+	}
+	else{
+		resultImg = result.data[0].image;
+		resultText = result.data[0].text;
+	}
+
+	document.getElementById("result-img").setAttribute("src", resultImg);
+	document.getElementById("result-text").innerHTML = resultText;
+
+	document.getElementById("exercise-done").setAttribute("style", "display: block");
+	document.getElementById("box-side").setAttribute("style", "visibility: hidden");
+}
 
 //On submit
 function atbs(){
@@ -149,10 +183,21 @@ function atbs(){
 
 	let inputValue = input.value;
 	checkAnswer(inputValue);
-
-	if(nextQuestion){}
 	
 }
 
+// Redo
+function redo(){
+	negativeScore = 0;
+	positiveScore = 0;
+	document.getElementById("exercise-done").removeAttribute("style");
+	document.getElementById("box-side").removeAttribute("style");
+	document.getElementById("box-side").children[0].innerHTML = "+ 0";
+	document.getElementById("box-side").children[1].innerHTML = "- 0";
+	indexArr = randomize(newArr(data.data.length));
+	curIndex = 0;
+	update();
+
+}
 
 /*------------------------------------------------*/

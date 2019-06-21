@@ -6,7 +6,8 @@ body{
 }
 
 .container{
-	height: 100vh;
+	margin: 0;
+	min-height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -48,7 +49,7 @@ body{
 	border-bottom: solid 1px #f44336;
 }
 
-button{
+.submit-btn{
 	margin-left: 10px;
 	position: relative;
 	height: 2.5rem;
@@ -80,21 +81,21 @@ button{
 	color: red;
 	display: none;
 }
-
+/*
 .correct{
 	color: green;
 	display: none;
 }
-
+*/
 .error{
 	color: #b0ad00;
 	display: none;
 }
-
+/*
 .correct.response-display{
 	background-color: green;
 }
-
+*/
 .wrong.response-display{
 	background-color: red;
 }
@@ -115,7 +116,7 @@ button{
 
 
 
-.box-load{
+#box-side{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -123,21 +124,21 @@ button{
 	height: 23rem;
 }
 
-.box-load div:nth-child(1){
+#box-side div:nth-child(1){
 	color: green;
 }
-.box-load div:nth-child(2){
+#box-side div:nth-child(2){
 	color: red;
 }
 
-#loading{
+#side-panel{
 	height: 2rem;
 	padding: 1rem 1rem;
 	border-radius: 0 2rem 2rem 0;
 	background-color: #fff;
 }
 
-.exercise-done{
+#exercise-done{
 	position: absolute;
 	text-align: center;
 	padding: 2rem 1rem 1rem 1rem;
@@ -149,6 +150,62 @@ button{
 	display: none;
 }
 
+#exercise-done > img{
+	height: 128px;
+	width: auto;
+}
+
 .score-text{
 	padding: 0.8rem 0;
+}
+
+.redo-btn{
+	height: 3rem;
+	width: 3rem;
+	background: #000;
+	border-radius: 50%;
+	border: none;
+	position: relative;
+}
+
+.redo{
+	margin: auto;
+	height: 2.5rem;
+	width: 2.5rem;
+	padding: 0.1rem;
+}
+
+.redo::after, .redo::before{
+	position: absolute;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
+	content: "";
+	display: block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box
+}
+
+.redo::after{
+	top: 1rem;
+	left: 0.5rem;
+	position: absolute;
+	height: 0;
+	width: 0;
+	border: 0.5rem solid;
+	border-color: transparent transparent transparent white;
+	transform: translate(1rem, -0.6rem);
+}
+
+.redo::before{
+	top: 0.7rem;
+	left: 0.6rem;
+	border: 0.3rem solid;
+	border-color: transparent white white white;
+	border-radius: 50%;
+	height: 1.8rem;
+	width: 1.8rem;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
 }

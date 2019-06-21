@@ -1,0 +1,24 @@
+{
+	"data": [
+		{
+			"image": "images/kanji.svg",
+			"text": "Try for a better score?",
+			"credits": "https://www.flaticon.com/free-icon/kanji_385969"
+		},
+		{
+			"image": "images/koinobori.svg",
+			"text": "Hey there! What about an even better score? Huh?",
+			"credits": "https://www.flaticon.com/free-icon/koinobori_1690159"
+		},
+		{
+			"image": "images/sushi.svg",
+			"text": "Aha! That's a good level, but what about a perfect score?",
+			"credits": "https://www.flaticon.com/free-icon/sushi_1868708"
+		},
+		{
+			"image": "images/ninja.svg",
+			"text": "Woohoo! That's what I call a perfect score!",
+			"credits": "https://www.flaticon.com/free-icon/ninja_1074766"
+		}
+	]
+}
