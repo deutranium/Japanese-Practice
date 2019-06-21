@@ -1,1 +1,1 @@
-:paperclip: : [here](https://deutranium.github.io/Japanese-Practice/)
+[:link:](https://deutranium.github.io/Japanese-Practice/)

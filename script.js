@@ -136,7 +136,7 @@ function checkAnswer(inputVal){
 			elemWrong[i].setAttribute("style", "display : block");
 		}
 		input.value = "";
-		document.getElementById("box-side").children[1].innerHTML = negativeScore;
+		document.getElementById("box-side").children[1].innerHTML = "- " + Math.abs(negativeScore);
 	}
 }
 
@@ -145,8 +145,8 @@ function checkAnswer(inputVal){
 
 function exerciseCompleted(){
 	console.log("tada!");
-	document.getElementById("correct-score").innerHTML = "Corrrect attempts : +" + positiveScore;
-	document.getElementById("wrong-score").innerHTML = "Incorrrect attempts : " + negativeScore;
+	document.getElementById("correct-score").innerHTML = "Corrrect attempts : + " + positiveScore;
+	document.getElementById("wrong-score").innerHTML = "Incorrrect attempts : - " + Math.abs(negativeScore);
 	let resultImg = "";
 	let resultText = "";
 	if(positiveScore + negativeScore == data.data.length){
