@@ -4,11 +4,14 @@
 	<title>ひらがな</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 </head>
 <body>
 	<div class="container">
 		<div id="box-main">
+
 			<div id = "inner-container">
+				<button style="position: absolute; right : 0;" id="sound-btn" type="button" onclick="playSound()"><i class="fas fa-volume-up"></i></button>
 				<div id="box-big"></div>
 				<hr width = "50" style="margin: 0 auto;">
 				<div id="box-small">
@@ -24,13 +27,14 @@
 					</div>
 				</div>
 			</div>
+
 			<div id="box-side">
 				<div id="side-panel">+ 0</div>
 				<div id="side-panel">- 0</div>
 			</div>
+
 			<div id="exercise-done">
 				<img id = "result-img"><br><br>
-				<!-- <div>Icons made by <a href="https://www.flaticon.com/authors/pongsakornred" title="pongsakornRed">pongsakornRed</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
 				<div>
 					<span id="result-text"></span>
 					<div class="score-text">
@@ -53,6 +57,7 @@
 === To Do ===
 - Timer
 - Streak
-- More emages
+- ~~~Audio~~~
+- More images
 
 -->

@@ -5,6 +5,12 @@ body{
 	font-family: "Noto Sans JP", sans-serif;
 }
 
+button{
+	cursor: pointer;
+	outline: none;
+	border: none;
+}
+
 .container{
 	margin: 0;
 	min-height: 100vh;
@@ -20,11 +26,19 @@ body{
 
 #inner-container{
 	display: block;
+	position: relative;
 	height : 23rem;
 	width: 23rem;
 	background-color: #ffffff;
 	border-radius: 2px;
 	box-shadow: 1px 1px 8px #555;
+}
+
+#sound-btn{
+	background: transparent;
+	font-size: 1.5rem;
+	color: #333;
+	padding: 0.5rem;
 }
 
 #box-big{
@@ -42,7 +56,6 @@ body{
 }
 
 #input-box{
-	outline: none;
 	border: none;
 	font-size: 1.2rem;
 	padding: 0.3rem 0.5rem;
@@ -54,7 +67,6 @@ body{
 	position: relative;
 	height: 2.5rem;
 	width: 2.5rem;
-	border: none;
 	background-color: #000;
 	border-radius: 500px;
 }
@@ -81,21 +93,10 @@ body{
 	color: red;
 	display: none;
 }
-/*
-.correct{
-	color: green;
-	display: none;
-}
-*/
 .error{
 	color: #b0ad00;
 	display: none;
 }
-/*
-.correct.response-display{
-	background-color: green;
-}
-*/
 .wrong.response-display{
 	background-color: red;
 }
@@ -118,6 +119,7 @@ body{
 
 #box-side{
 	display: flex;
+	padding: 0 8px 0 0;
 	flex-direction: column;
 	justify-content: space-around;
 	overflow: auto;
@@ -136,6 +138,7 @@ body{
 	padding: 1rem 1rem;
 	border-radius: 0 2rem 2rem 0;
 	background-color: #fff;
+	box-shadow: 1px 1px 8px #555;
 }
 
 #exercise-done{
@@ -164,8 +167,8 @@ body{
 	width: 3rem;
 	background: #000;
 	border-radius: 50%;
-	border: none;
 	position: relative;
+	padding-top: 1rem;
 }
 
 .redo{

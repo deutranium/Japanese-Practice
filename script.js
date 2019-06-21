@@ -1,9 +1,11 @@
-// A self note - Make this WITHOUT jQuery!
+// A self note - Make this WITHOUT jQuery
 
+console.log("Sounds from http://www.guidetojapanese.org");
+console.log("Images from https://www.flaticon.com , check result.json for full link to the image");
 //Variables
 let data;								// To store alphabets.json
 let hiragana;							// The hiragana alphabet
-let romaji;								// The correct Romaji translation
+let roumaji;								// The correct roumaji translation
 let indexArr;							// To store the shuffled array of indices for alphabets.json
 let curIndex = 0; 						// Index in indexArr whose alphabet is currently displayed
 let elemWrong = document.querySelectorAll(".wrong");
@@ -14,6 +16,7 @@ let isExerciseComplete = false;
 let positiveScore = 0;
 let negativeScore = 0;
 let result;								// To store the results
+let soundUrl;
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -52,7 +55,7 @@ getJSON("kana.json", function(e, response){
 	if(e != null) console.log(e);
 	else{
 		data = response;
-		indexArr = randomize(newArr(data.data.length));
+		indexArr = randomizeArr(data.data.length);
 		update();
 	}
 });
@@ -65,20 +68,15 @@ getJSON("result.json", function(e, response){
 
 /*------------------------------------------------*/
 
+// To create and randomise the array kana
+function randomizeArr(lgt){
 
-// To generate an array of numbers
-function newArr(lgt){
-	indexArr = [];
+	let arr = [];
 	for(let i = 0; i < lgt; i++){
-		indexArr.push(i);
+		arr.push(i);
 	}
 
-	return indexArr;
-}
 
-
-// To randomise the alphabets
-function randomize(arr){
 	for(let i = arr.length - 1; i > 0; i --){
 		let j = Math.floor(Math.random() * (i + 1));
 
@@ -93,28 +91,13 @@ function randomize(arr){
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/* ===== DOM Specific functions sart here ===== */
+/* ===== DOM Specific functions start here ===== */
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-function update(){
-	if(curIndex == data.data.length) exerciseCompleted();
-	else{
-		hiragana = data.data[indexArr[curIndex]]["HG"];
-		romaji = data.data[indexArr[curIndex]]["RJ"];
-		curIndex++;
-
-		bigDibba.innerHTML = hiragana;
-	}
-}
-
-
-/*------------------------------------------------*/
-
-
 function checkAnswer(inputVal){
-	if(inputVal.toLowerCase() == romaji){
+	if(inputVal.toLowerCase() == roumaji){
 		input.value = "";
 		positiveScore += 1;
 		document.getElementById("box-side").children[0].innerHTML = "+ " + positiveScore;
@@ -142,6 +125,28 @@ function checkAnswer(inputVal){
 
 
 /*------------------------------------------------*/
+
+
+function update(){
+	if(curIndex == data.data.length) exerciseCompleted();
+	else{
+		hiragana = data.data[indexArr[curIndex]]["HG"];
+		roumaji = data.data[indexArr[curIndex]]["RJ"];
+		curIndex++;
+		soundUrl = "sounds/" + roumaji + ".mp3";
+
+		bigDibba.innerHTML = hiragana;
+	}
+}
+
+
+function playSound(){
+	let audio = new Audio(soundUrl);
+	audio.play();
+}
+
+/*------------------------------------------------*/
+
 
 function exerciseCompleted(){
 	console.log("tada!");
@@ -174,6 +179,20 @@ function exerciseCompleted(){
 	document.getElementById("box-side").setAttribute("style", "visibility: hidden");
 }
 
+// Redo
+function redo(){
+	negativeScore = 0;
+	positiveScore = 0;
+	document.getElementById("exercise-done").removeAttribute("style");
+	document.getElementById("box-side").removeAttribute("style");
+	document.getElementById("box-side").children[0].innerHTML = "+ 0";
+	document.getElementById("box-side").children[1].innerHTML = "- 0";
+	indexArr = randomizeArr(data.data.length);
+	curIndex = 0;
+	update();
+
+}
+
 //On submit
 function atbs(){
 	let i = elemDibba.length;
@@ -184,20 +203,6 @@ function atbs(){
 	let inputValue = input.value;
 	checkAnswer(inputValue);
 	
-}
-
-// Redo
-function redo(){
-	negativeScore = 0;
-	positiveScore = 0;
-	document.getElementById("exercise-done").removeAttribute("style");
-	document.getElementById("box-side").removeAttribute("style");
-	document.getElementById("box-side").children[0].innerHTML = "+ 0";
-	document.getElementById("box-side").children[1].innerHTML = "- 0";
-	indexArr = randomize(newArr(data.data.length));
-	curIndex = 0;
-	update();
-
 }
 
 /*------------------------------------------------*/
