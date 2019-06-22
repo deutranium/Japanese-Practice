@@ -17,6 +17,7 @@ let positiveScore = 0;
 let negativeScore = 0;
 let result;								// To store the results
 let soundUrl;
+let audio;
 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -134,14 +135,14 @@ function update(){
 		roumaji = data.data[indexArr[curIndex]]["RJ"];
 		curIndex++;
 		soundUrl = "sounds/" + roumaji + ".mp3";
+		audio = new Audio(soundUrl);
 
 		bigDibba.innerHTML = hiragana;
 	}
 }
 
 
-function playSound(){
-	let audio = new Audio(soundUrl);
+function playSound(){	//Maybe a function isn't needed ?
 	audio.play();
 }
 
@@ -150,8 +151,8 @@ function playSound(){
 
 function exerciseCompleted(){
 	console.log("tada!");
-	document.getElementById("correct-score").innerHTML = "Corrrect attempts : + " + positiveScore;
-	document.getElementById("wrong-score").innerHTML = "Incorrrect attempts : - " + Math.abs(negativeScore);
+	document.getElementById("correct-score").innerHTML = "Corrrect attempts : +" + positiveScore;
+	document.getElementById("wrong-score").innerHTML = "Incorrrect attempts : -" + Math.abs(negativeScore);
 	let resultImg = "";
 	let resultText = "";
 	if(positiveScore + negativeScore == data.data.length){
@@ -185,8 +186,8 @@ function redo(){
 	positiveScore = 0;
 	document.getElementById("exercise-done").removeAttribute("style");
 	document.getElementById("box-side").removeAttribute("style");
-	document.getElementById("box-side").children[0].innerHTML = "+ 0";
-	document.getElementById("box-side").children[1].innerHTML = "- 0";
+	document.getElementById("box-side").children[0].innerHTML = "+0";
+	document.getElementById("box-side").children[1].innerHTML = "-0";
 	indexArr = randomizeArr(data.data.length);
 	curIndex = 0;
 	update();
