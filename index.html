@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>ひらがな</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
 </head>
-<body>
-	<div class="container">
-		<div id="box-main">
 
-			<div id = "inner-container">
-				<button style="position: absolute; right : 0;" id="sound-btn" type="button" onclick="playSound()"><i class="fas fa-volume-up"></i></button>
+<body>
+	<div class="container">	<!--Occupying the whole screen -->
+		<div id="box-main">	<!-- Wrapper of the boxes at the center -->
+
+
+			<div id = "inner-container">	<!-- Main box where the kana and the input are -->
+				<button style="position: absolute; right : 0;" id="sound-btn" type="button" onclick="audio.play()"><i class="fas fa-volume-up"></i></button>
 				<div id="box-big"></div>
 				<hr width = "50" style="margin: 0 auto;">
 				<div id="box-small">
 						<input id="input-box" type="text" name="inpt" placeholder="Enter your answer here">
 						<button type="button" onclick="atbs()" class="submit-btn"><span class="checkmark"></span></button>
 					<div class="response">
-						<!--<div class="response-text correct">Correct!</div>-->
 						<div class="response-text wrong">Wrong!</div>
 						<div class="response-text error">Please enter some text!</div>
-						<!--<div class="response-display correct"></div>-->
 						<div class="response-display wrong"></div>
 						<div class="response-display error"></div>
 					</div>
 				</div>
 			</div>
 
-			<div id="box-side">
+
+			<div id="box-side">	<!-- Box containing the scores -->
 				<div id="side-panel">+0</div>
 				<div id="side-panel">-0</div>
 			</div>
 
-			<div id="exercise-done">
+
+			<div id="exercise-done">	<!-- To be shown when the user has completed the exercise -->
 				<img id = "result-img"><br><br>
 				<div>
 					<span id="result-text"></span>
@@ -44,6 +48,7 @@
 				</div>
 				<button class="redo-btn" type="button" onclick="redo()"><span class = "redo"></span></button>
 			</div>
+
 
 		</div>
 	</div>
@@ -59,5 +64,6 @@
 - Streak
 - ~~~Audio~~~
 - More images
+- margin-top for button (smaller screen sizes)
 
 -->

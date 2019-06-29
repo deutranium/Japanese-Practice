@@ -10,6 +10,7 @@ button{
 	cursor: pointer;
 	outline: none;
 	border: none;
+	margin-top : 5px;
 }
 
 .container{
@@ -22,8 +23,8 @@ button{
 
 #box-main{
 	display: flex;
-	max-width: 90vmin;
-	max-height: 90vmin;
+	max-width: 80vw;
+	max-height: 80vw;
 }
 
 #inner-container{
@@ -112,7 +113,6 @@ button{
 }
 
 .response-display{
-	margin-top: 10px;
 	height: 1.5em;
 	border-radius: 0 0 2px 2px;
 }
@@ -217,6 +217,6 @@ button{
 
 @media only screen (max-width: 995px){
 	#box-main{
-		font-size: 25px;
+		font-size: 15px;
 	}
 }

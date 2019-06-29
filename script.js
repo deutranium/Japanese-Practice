@@ -1,18 +1,21 @@
 // A self note - Make this WITHOUT jQuery
+// Self Note #2 - This code looks like a mess
 
+// Credits where due
 console.log("Sounds from http://www.guidetojapanese.org");
 console.log("Images from https://www.flaticon.com , check result.json for full link to the image");
-//Variables
+
+
+// Global Variables
 let data;								// To store alphabets.json
 let hiragana;							// The hiragana alphabet
-let roumaji;								// The correct roumaji translation
+let roumaji;							// The correct roumaji equivalent
 let indexArr;							// To store the shuffled array of indices for alphabets.json
 let curIndex = 0; 						// Index in indexArr whose alphabet is currently displayed
-let elemWrong = document.querySelectorAll(".wrong");
-let elemError = document.querySelectorAll(".error");
-let elemDibba = document.querySelectorAll(".response-display, .response-text");
-let bigDibba = document.getElementById("box-big");
-let isExerciseComplete = false;
+let elemWrong = document.querySelectorAll(".wrong");	// To be shown for wrong answer
+let elemError = document.querySelectorAll(".error");	// To be shown if no text is entered
+let elemDibba = document.querySelectorAll(".response-display, .response-text");	// The (hidden by default) elements responding to the input (wrong, error etc.)
+let bigDibba = document.getElementById("box-big");		// To be shown on completion of exercise
 let positiveScore = 0;
 let negativeScore = 0;
 let result;								// To store the results
@@ -101,7 +104,7 @@ function checkAnswer(inputVal){
 	if(inputVal.toLowerCase() == roumaji){
 		input.value = "";
 		positiveScore += 1;
-		document.getElementById("box-side").children[0].innerHTML = "+ " + positiveScore;
+		document.getElementById("box-side").children[0].innerHTML = "+" + positiveScore;
 		update();
 	}
 
@@ -120,7 +123,7 @@ function checkAnswer(inputVal){
 			elemWrong[i].setAttribute("style", "display : block");
 		}
 		input.value = "";
-		document.getElementById("box-side").children[1].innerHTML = "- " + Math.abs(negativeScore);
+		document.getElementById("box-side").children[1].innerHTML = negativeScore;
 	}
 }
 
@@ -141,18 +144,13 @@ function update(){
 	}
 }
 
-
-function playSound(){	//Maybe a function isn't needed ?
-	audio.play();
-}
-
 /*------------------------------------------------*/
 
 
 function exerciseCompleted(){
 	console.log("tada!");
 	document.getElementById("correct-score").innerHTML = "Corrrect attempts : +" + positiveScore;
-	document.getElementById("wrong-score").innerHTML = "Incorrrect attempts : -" + Math.abs(negativeScore);
+	document.getElementById("wrong-score").innerHTML = "Incorrrect attempts : " + negativeScore;
 	let resultImg = "";
 	let resultText = "";
 	if(positiveScore + negativeScore == data.data.length){
