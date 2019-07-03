@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
 
+/* ---------- */
+
 body{
 	margin: 0;
 	font-family: "Noto Sans JP", sans-serif;
@@ -12,6 +14,8 @@ button{
 	border: none;
 	margin-top : 5px;
 }
+
+/* ---------- */
 
 .container{
 	margin: 0;
@@ -26,6 +30,7 @@ button{
 	max-width: 90vw;
 	max-height: 80vw;
 }
+
 
 #inner-container{
 	display: block;
@@ -87,6 +92,8 @@ button{
 	transform: rotate(45deg);
 }
 
+/* ---------- */
+
 .response{
 	width: 100%;
 	position: absolute;
@@ -114,7 +121,7 @@ button{
 	border-radius: 0 0 2px 2px;
 }
 
-
+/* ---------- */
 
 #box-side{
 	display: flex;
@@ -139,6 +146,8 @@ button{
 	background-color: #fff;
 	box-shadow: 1px 1px 8px #555;
 }
+
+/* ---------- */
 
 #exercise-done{
 	position: absolute;
@@ -211,6 +220,8 @@ button{
 	-webkit-transform: rotate(45deg);
 	transform: rotate(45deg);
 }
+
+/* ---------- */
 
 @media only screen (max-width: 995px){
 	#box-main{
