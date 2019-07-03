@@ -204,4 +204,16 @@ function atbs(){
 	
 }
 
-/*------------------------------------------------*/
+/*------------------------------------------------
+
+Summary of all the functions:
+
+- getJSON(url, function(error, response){}) : to get the JSON at the location specified by URL
+- randomizeArr(length) : Create an array of length as `length` with numbers from 0 through `length - 1`
+- checkAnswer(response) : Checks if thd answer is correct from the specified JSON
+- update() : Updates the UI after every correct answer
+- exerciseCompleted() : Displays the final results, and asks if the user wants to redo
+- redo() : Resets everything, and starts the exercise from the beginning
+- atbs() : Calls the rest of the function on enter key press, and submit button click
+
+------------------------------------------------*/

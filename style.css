@@ -23,7 +23,7 @@ button{
 
 #box-main{
 	display: flex;
-	max-width: 80vw;
+	max-width: 90vw;
 	max-height: 80vw;
 }
 
@@ -59,6 +59,7 @@ button{
 }
 
 #input-box{
+	margin: 0 1em;
 	border: none;
 	font-size: 1.2em;
 	padding: 0.3em 0.5em;
@@ -108,10 +109,6 @@ button{
 	background-color: #ffe000;
 }
 
-.blah{
-	display: block;
-}
-
 .response-display{
 	height: 1.5em;
 	border-radius: 0 0 2px 2px;
@@ -137,7 +134,7 @@ button{
 
 #side-panel{
 	height: 2em;
-	padding: 1em 1em;
+	padding: 1em 2em 1em 1em;
 	border-radius: 0 2em 2em 0;
 	background-color: #fff;
 	box-shadow: 1px 1px 8px #555;
