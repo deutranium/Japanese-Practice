@@ -72,6 +72,7 @@ getJSON("result.json", function(e, response){
 
 /*------------------------------------------------*/
 
+
 // To create and randomise the array kana
 function randomizeArr(lgt){
 
@@ -143,6 +144,7 @@ function update(){
 		bigDibba.innerHTML = hiragana;
 	}
 }
+
 
 /*------------------------------------------------*/
 
