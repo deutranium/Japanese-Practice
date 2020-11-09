@@ -83,8 +83,8 @@ button{
 .checkmark{
 	display: inline-block;
 	left: 50%;
-	width: 10px;
-	height: 20px;
+	width: 5px;
+	height: 10px;
 	border: solid #fff;
 	border-width: 0 2px 2px 0;
 	-webkit-transform: rotate(45deg);
